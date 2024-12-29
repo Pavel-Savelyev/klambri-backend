@@ -16,7 +16,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	if err := natsclient.Init(); err != nil {
+	if err := natsclient.Init(config.NatsServer.Url); err != nil {
 		log.Fatal("Error ", err)
 	}
 	defer natsclient.Close()

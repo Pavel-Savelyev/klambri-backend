@@ -10,6 +10,10 @@ type KlambriConfig struct {
 	Server struct {
 		Port string `yaml:"port"`
 	} `yaml:"server"`
+
+	NatsServer struct {
+		Url string `yaml:"url"`
+	} `yaml:"nats-server"`
 }
 
 func ReadConfig(path string) (*KlambriConfig, error) {
