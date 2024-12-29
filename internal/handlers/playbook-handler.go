@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"fmt"
 	natsclient "klambri-backend/internal/nats-client"
 	"net/http"
 
@@ -18,6 +19,8 @@ func PlaybookHandler(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to send to NATS: " + err.Error()})
 		return
 	}
+
+	fmt.Println(jsonData)
 
 	c.JSON(http.StatusOK, gin.H{"status": "PlaybookConfig sent successfully"})
 }
